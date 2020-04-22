@@ -10,6 +10,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.io.Serializable;
+
 /**
  * <p>
  * 讲师 服务实现类
@@ -20,6 +22,11 @@ import org.springframework.util.StringUtils;
  */
 @Service
 public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeacher> implements EduTeacherService {
+    @Override
+    public boolean removeById(Serializable id) {
+        Integer result = baseMapper.deleteById(id);
+        return null != result && result > 0;
+    }
 
     @Override
     public void pageQuery(Page<EduTeacher> pageParam, TeacherQuery teacherQuery) {

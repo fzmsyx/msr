@@ -62,8 +62,12 @@ public class EduTeacherController {
     public R removeById(
             @ApiParam(name = "id", value = "讲师ID", required = true)
             @PathVariable String id){
-        teacherService.removeById(id);
-        return R.ok();
+        boolean result = teacherService.removeById(id);
+        if(result){
+            return R.ok();
+        }else{
+            return R.error().message("删除失败");
+        }
     }
 
     /**
