@@ -37,10 +37,11 @@ public class EduTeacherController {
      * @return
      */
     @ApiOperation(value = "所有讲师列表")
-    @GetMapping
+    @GetMapping("list")
     public R list(){
 
         // 自定义异常测试
+
 //        int a = 10/0;
 //        System.out.println(a);
 //        try {
@@ -50,7 +51,7 @@ public class EduTeacherController {
 //        }
 
         List<EduTeacher> list = teacherService.list(null);
-        return R.ok().data("items", list);
+        return R.ok().data("item", list);
     }
     /**
      *  根据ID删除讲师
