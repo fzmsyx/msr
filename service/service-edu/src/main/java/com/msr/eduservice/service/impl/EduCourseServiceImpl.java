@@ -56,8 +56,8 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     @Override
     public CourseInfoForm getCourseInfoFormById(String id) {
         System.out.println(id);
-
         EduCourse course = this.getById(id);
+        System.out.println(course);
         if(course == null){
             throw new MSRException(20001, "数据不存在");
         }

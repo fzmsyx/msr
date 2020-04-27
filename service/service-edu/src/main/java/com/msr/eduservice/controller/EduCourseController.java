@@ -38,6 +38,7 @@ public class EduCourseController {
     public R getById(
             @ApiParam(name = "id", value = "课程ID", required = true)
             @PathVariable String id){
+        System.out.println(id);
 
         CourseInfoForm courseInfoForm = courseService.getCourseInfoFormById(id);
         return R.ok().data("item", courseInfoForm);
