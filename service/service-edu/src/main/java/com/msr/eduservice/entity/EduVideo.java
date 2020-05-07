@@ -27,6 +27,7 @@ import lombok.experimental.Accessors;
 @ApiModel(value="EduVideo对象", description="课程视频")
 public class EduVideo implements Serializable {
 
+
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "视频ID")

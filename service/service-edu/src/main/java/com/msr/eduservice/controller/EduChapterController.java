@@ -4,7 +4,7 @@ package com.msr.eduservice.controller;
 import com.msr.commonutils.R;
 import com.msr.eduservice.entity.EduChapter;
 import com.msr.eduservice.service.EduChapterService;
-import com.msr.eduservice.vo.ChapterVo;
+import com.msr.eduservice.entity.vo.ChapterVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -37,7 +37,7 @@ public class EduChapterController {
             @PathVariable String courseId){
 
         List<ChapterVo> chapterVoList = chapterService.nestedList(courseId);
-        return R.ok().data("items", chapterVoList);
+        return R.ok().data("item", chapterVoList);
     }
 
     @ApiOperation(value = "新增章节")
@@ -72,6 +72,20 @@ public class EduChapterController {
         chapter.setId(id);
         chapterService.updateById(chapter);
         return R.ok();
+    }
+
+    @ApiOperation(value = "根据ID删除章节")
+    @DeleteMapping("{id}")
+    public R removeById(
+            @ApiParam(name = "id", value = "章节ID", required = true)
+            @PathVariable String id){
+
+        boolean result = chapterService.removeChapterById(id);
+        if(result){
+            return R.ok();
+        }else{
+            return R.error().message("删除失败");
+        }
     }
 }
 

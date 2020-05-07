@@ -1,4 +1,4 @@
-package com.msr.eduservice.entity.vo;
+package com.msr.eduservice.entity.form;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

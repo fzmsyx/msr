@@ -1,8 +1,12 @@
 package com.msr.eduservice.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.msr.eduservice.entity.EduCourse;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.msr.eduservice.entity.vo.CourseInfoForm;
+import com.msr.eduservice.entity.form.CourseInfoForm;
+import com.msr.eduservice.entity.vo.CoursePublishVo;
+import com.msr.eduservice.query.CourseQuery;
+
 
 /**
  * <p>
@@ -21,6 +25,10 @@ public interface EduCourseService extends IService<EduCourse> {
     String saveCourseInfo(CourseInfoForm courseInfoForm);
     CourseInfoForm getCourseInfoFormById(String id);
     void updateCourseInfoById(CourseInfoForm courseInfoForm);
+    CoursePublishVo getCoursePublishVoById(String id);
+    void publishCourseById(String id);
+    //分页显示
+    void pageQuery(Page<EduCourse> pageParam, CourseQuery courseQuery);
 
 
 }
