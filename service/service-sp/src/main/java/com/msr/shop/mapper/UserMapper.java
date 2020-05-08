@@ -20,19 +20,21 @@ import java.util.List;
  */
 
 public interface UserMapper extends BaseMapper<User> {
-        @Results({
+ /*       @Results({
                 @Result( id=true,column = "id",property = "id"),
                 @Result(column = "username",property = "username"),
                 @Result(column = "birthday",property = "birthday"),
                 @Result(column = "sex",property = "sex"),
                 @Result(column = "is_deleted",property = "isDeleted"),
-                @Result(column = "gmt_create",property = "gmt_create"),
-                @Result(column = "gmt_modified",property = "gmt_modified"),
-                @Result(column = "id",property = "address",one=@One(select="som.msr.shop.AddressMapper.getAddressByUserId")),
-                @Result(column = "id",property = "orders",many=@Many(select="com.msr.shop.OrderMapper.getOrderByUserId"))
+                @Result(column = "gmt_create",property = "gmtCreate"),
+                @Result(column = "gmt_modified",property = "gmtModified"),
+                @Result(column = "id",property = "address",one=@One(select="com.msr.shop.mapper.AddressMapper.getAddressByUserId")),
+                @Result(column = "id",property = "orders",many=@Many(select="com.msr.shop.mapper.OrderMapper.getOrdersByUserId"))
 
         })
         @Select("select*from shop_user")
         public List<User> getUserAndAddressAndOrder();
+*/
+        List<User> getUserAndAddressAndOrder();
 
 }

@@ -2,9 +2,7 @@ package com.msr.shop.mapper;
 
 import com.msr.shop.entity.Address;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Component;
 
 /**
  * <p>

@@ -2,4 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.msr.shop.mapper.UserMapper">
 
+    <resultMap id="BaseResultMap" type="com.msr.shop.entity.User">
+
+        <id column="id" property="id"/>
+        <result property="username" column="username"/>
+        <result property="birthday" column="birthday"/>
+        <result property="sex" column="sex"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+        <association property="address" column="id" javaType="com.msr.shop.entity.Address" select="com.msr.shop.mapper.AddressMapper.getAddressByUserId"/>
+        <collection column="id" property="orders" javaType="ArrayList" ofType="com.msr.shop.entity.Order"
+        select="com.msr.shop.mapper.OrderMapper.getOrdersByUserId"></collection>
+
+    </resultMap>
+    <select id="getUserAndAddressAndOrder" resultMap="BaseResultMap">
+            select*from shop_user;
+        </select>
+
+
 </mapper>
